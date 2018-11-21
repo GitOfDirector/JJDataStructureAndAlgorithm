@@ -28,6 +28,11 @@ namespace BinaryTree
 
             Console.WriteLine();
 
+            int[] array = { 1, 2, 3, '*', '*', 4, '*', '*', 5, 6, '*', '*', 7 };
+            TreeNode tree = CreateBinaryTree(array, 0);
+            Console.WriteLine();
+
+
             Console.ReadKey();
         }
 
@@ -71,6 +76,19 @@ namespace BinaryTree
             return root;
 
         }
+
+        /// <summary>
+        /// 先序遍历创建二叉树
+        /// </summary>
+        /// <returns></returns>
+        public static TreeNode CreateBinaryTree(int[] values, int index)
+        {
+           //你对於递归的理解也太傻逼了
+            
+            return null;
+
+        }
+
 
         /// <summary>
         /// 前序遍历
@@ -211,7 +229,7 @@ namespace BinaryTree
             return t1;
 
         }
-       
+
         /*
          * C++
         TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) 
