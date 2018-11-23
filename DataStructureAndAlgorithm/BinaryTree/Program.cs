@@ -8,7 +8,7 @@ namespace BinaryTree
 {
     class Program
     {
-        static int defaultValueWhenNull = -23333;
+
 
         static void Main(string[] args)
         {
@@ -26,162 +26,45 @@ namespace BinaryTree
             TreeNode i = MergeTreeIterative(t1, t2);
             //TreeNode r = MergeTreeRecursive(t1, t2);
 
-            Console.WriteLine();
+            Console.WriteLine("-----------------------------");
 
-            int[] array = { 1, 2, 3, '*', '*', 4, '*', '*', 5, 6, '*', '*', 7 };
-            TreeNode tree = CreateBinaryTree(array, 0);
-            Console.WriteLine();
+            //int[] array = { 1, 2, 3, '*', '*', 4, '*', '*', 5, 6, '*', '*', 7 };
 
+            #region 手动创建
+            TreeNode root = new TreeNode(1);
+            TreeNode node11 = new TreeNode(2);
+            TreeNode node12 = new TreeNode(3);
+            TreeNode node111 = new TreeNode(4);
+            TreeNode node112 = new TreeNode(5);
+            TreeNode node1111 = new TreeNode(7);
+            TreeNode node1112 = new TreeNode(8);
+            TreeNode node1122 = new TreeNode(9);
+            TreeNode node121 = new TreeNode(6);
+            root.left = node11;
+            root.right = node12;
+            node11.left = node111;
+            node11.right = node112;
+            node12.left = node121;
+            node111.left = node1111;
+            node111.right = node1112;
+            node112.right = node1122;
+            #endregion
+
+            Console.Write("层序：");
+            BSTreeErgodic.ErgodicTreeLayer(root);
+            Console.WriteLine("\n-----------------------------");
+            Console.Write("中序：");
+            BSTreeErgodic.InorderTraversal_Iteration(root);
+            Console.WriteLine("\n-----------------------------");
+            Console.Write("后序：");
+            BSTreeErgodic.PostorderTraversal_Iteration(root);
+            Console.WriteLine("\n-----------------------------");
+            Console.Write("后序：");
+            BSTreeErgodic.PostorderTraversal2_Iteration(root);
 
             Console.ReadKey();
         }
 
-        /// <summary>
-        /// 使用集合创建二叉树
-        /// </summary>
-        /// <param name="list"></param>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public static TreeNode CreateTreeUseList(List<int> list, int index)
-        {
-
-            if (list[index] == defaultValueWhenNull)
-            {
-                return null;
-            }
-
-            TreeNode root = new TreeNode((int)list[index]);
-
-            int lNode = 2 * index + 1;
-            int rNode = 2 * index + 2;
-
-            if (lNode > list.Count - 1)
-            {
-                root.left = null;
-            }
-            else
-            {
-                root.left = CreateTreeUseList(list, lNode);
-            }
-
-            if (rNode > list.Count - 1)
-            {
-                root.right = null;
-            }
-            else
-            {
-                root.right = CreateTreeUseList(list, rNode);
-            }
-
-            return root;
-
-        }
-
-        /// <summary>
-        /// 先序遍历创建二叉树
-        /// </summary>
-        /// <returns></returns>
-        public static TreeNode CreateBinaryTree(int[] values, int index)
-        {
-           //你对於递归的理解也太傻逼了
-            
-            return null;
-
-        }
-
-
-        /// <summary>
-        /// 前序遍历
-        /// </summary>
-        /// <param name="tree"></param>
-        public static void ErgodicTreePreOrder(TreeNode tree)
-        {
-            if (tree == null)
-            {
-                Console.Write(" Null ");
-                return;
-            }
-            else
-            {
-                //对于叶子节点不再向下遍历
-                if (tree.left == null && tree.right == null)
-                {
-                    Console.Write(" " + tree.val + " ");
-                }
-                else
-                {
-                    Console.Write(" " + tree.val + " ");
-                    ErgodicTreePreOrder(tree.left);
-                    ErgodicTreePreOrder(tree.right);
-                }
-            }
-
-        }
-
-        /// <summary>
-        /// 层序遍历
-        /// </summary>
-        /// <param name="tree"></param>
-        /// <param name="isOutNullLeafNode">是否输出空节点</param>
-        public static void ErgodicTreeLayer(TreeNode tree, bool isOutNullLeafNode = false)
-        {
-            Queue<TreeNode> que = new Queue<TreeNode>();
-            que.Enqueue(tree);
-
-            while (que.Count != 0)
-            {
-                TreeNode curNode = que.Dequeue();
-                if (curNode != null)
-                {
-                    Console.Write(" " + curNode.val + " ");
-                }
-                else if (isOutNullLeafNode)
-                {
-                    Console.Write(" Null ");
-                    continue;
-                }
-
-                //是否输出空叶子节点
-                if (isOutNullLeafNode)
-                {
-                    if (curNode.left != null && curNode.right == null)
-                    {
-                        que.Enqueue(curNode.left);
-                        que.Enqueue(null);
-                    }
-                    else if (curNode.left == null && curNode.right != null)
-                    {
-                        que.Enqueue(null);
-                        que.Enqueue(curNode.right);
-                    }
-                    else
-                    {
-                        if (curNode.left != null)
-                        {
-                            que.Enqueue(curNode.left);
-                        }
-
-                        if (curNode.right != null)
-                        {
-                            que.Enqueue(curNode.right);
-                        }
-                    }
-                }
-                else
-                {
-                    if (curNode.left != null)
-                    {
-                        que.Enqueue(curNode.left);
-                    }
-
-                    if (curNode.right != null)
-                    {
-                        que.Enqueue(curNode.right);
-                    }
-                }
-            }
-
-        }
 
         /// <summary>
         /// 合并两个二叉树
