@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sort", "Sort\Sort.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\BinaryTree.csproj", "{FEF1D8E9-55E5-47EB-AFE5-098C45CA6487}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermutationAndCombination", "PermutationAndCombination\PermutationAndCombination.csproj", "{D980D13F-CE4B-4265-8598-004B49AA4968}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FEF1D8E9-55E5-47EB-AFE5-098C45CA6487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEF1D8E9-55E5-47EB-AFE5-098C45CA6487}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEF1D8E9-55E5-47EB-AFE5-098C45CA6487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D980D13F-CE4B-4265-8598-004B49AA4968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D980D13F-CE4B-4265-8598-004B49AA4968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D980D13F-CE4B-4265-8598-004B49AA4968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D980D13F-CE4B-4265-8598-004B49AA4968}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
